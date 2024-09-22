@@ -1,12 +1,28 @@
+import {useState } from 'react'
 import Profileimg from '../assets/img/profile.jpg'
 import Navbar from '../components/Navbar'
+import { CircleX } from 'lucide-react'
+import { Navigate } from 'react-router-dom'
 
 const Profile = () => {
+    
+    const [name,setName] = useState("");
+    
+    const handelinput = (e) =>{
+        setName(e.target.value)
+    }
+    const handlesubmit=(e)=>{
+        e.preventDefault();
+        localStorage.setItem("name", name);
+        window.location.reload()
+    };
+    
+    const [visible,setvisible] = useState(false)
     return (
         <>
             {/* <div className="h-screen w-full bg-gradient-to-r from-[#1e1e23] via-[#1f1f3e] to-[#21214f] relative flex items-center justify-between px-6 py-8"> */}
             <div className="h-screen w-full bg1 text-white relative flex items-center justify-between px-6 py-8">
-                <div className="bg-[#0A1828] shadow-xl rounded-lg p-8 md:w-2/5 w-full/2">
+                <div className="bg-[#0A1828] shadow-xl rounded-lg p-8 md:w-2/5 w-full/2 transition transform hover:scale-105 hover:shadow-2xl duration-300">
                     <h1 className="text-4xl font-bold text-[#BFA181] mb-4">Srijith vy</h1>
                     <p className="text-lg text-white mb-4">
                     A dedicated B.Tech student specializing in Artificial Inteligence and Machine Learning, with a fervent passion for machine learning, deep leaming, and data structures. 
@@ -17,6 +33,7 @@ const Profile = () => {
                         <li><strong>Location:</strong> Coimbatore , Tamilnadu</li>
                         <li><strong>Email:</strong> srijithviswanathan@gmail.com</li>
                     </ul>
+                        <button className='w-18 h-13 p-3 bg-black text-[#BFA181] font-bold rounded-lg hover:text-white' onClick={() => setvisible(true)}>Yourself..?</button>
                 </div> 
                 
                 {/* Right portion */}
@@ -26,7 +43,7 @@ const Profile = () => {
                     
                     {/* Social Media Icons */}
                     <div className="flex justify-center items-center py-4 px-2 rounded-full gap-2">
-                        <a href="#"
+                        <a href="https://github.com/Srijith1881"
                             className="flex justify-center items-center w-16 h-16 rounded-full mx-2 bg-black shadow-md hover:shadow-lg transition duration-300">
                                 <svg className="w-8 h-8 fill-[#BFA181] hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="-2.5 0 19 19">
                                     <path d="M9.464 17.178a4.506 4.506 0 0 1-2.013.317 4.29 4.29 0 0 1-2.007-.317.746.746 0 0 1-.277-.587c0-.22-.008-.798-.012-1.567-2.564.557-3.105-1.236-3.105-1.236a2.44 2.44 0 0 0-1.024-1.348c-.836-.572.063-.56.063-.56a1.937 1.937 0 0 1 1.412.95 1.962 1.962 0 0 0 2.682.765 1.971 1.971 0 0 1 .586-1.233c-2.046-.232-4.198-1.023-4.198-4.554a3.566 3.566 0 0 1 .948-2.474 3.313 3.313 0 0 1 .091-2.438s.773-.248 2.534.945a8.727 8.727 0 0 1 4.615 0c1.76-1.193 2.532-.945 2.532-.945a3.31 3.31 0 0 1 .092 2.438 3.562 3.562 0 0 1 .947 2.474c0 3.54-2.155 4.32-4.208 4.548a2.195 2.195 0 0 1 .625 1.706c0 1.232-.011 2.227-.011 2.529a.694.694 0 0 1-.272.587z"></path>
@@ -34,7 +51,7 @@ const Profile = () => {
                         </a>
 
                         <a
-                    href="#"
+                    href="https://www.linkedin.com/in/srijith-vy-792498276/"
                     className="flex justify-center items-center w-16 h-16 rounded-full mx-2 bg-black shadow-md  hover:shadow-lg transition duration-300"
                     >
                     <svg
@@ -76,6 +93,32 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+            {
+                visible && (
+                    <>
+                        <div className="h-screen w-screen absolute top-0 left-0 bg-black/25 flex justify-center items-center z-50">
+                            <div className=" h-[50%] w-[30%] bg-red z-50 flex flex-col  bg-white  shadow-lg rounded-md">
+                                <div className="w-full h-[15%] flex flex-row justify-start px-10 items-center border-2 text-white bg-black text-xl font-bold ">
+                                    <div className="w-1/2">
+                                        Enter your name...!
+                                    </div>
+                                    <div className="w-1/2 flex justify-end ">
+                                        <CircleX onClick={() => setvisible(!visible)}/>
+                                    </div>
+                                </div>
+                                <div className="w-full h-[85%] flex flex-row justify-center items-center">
+                                    <form className="w-[80%] h-[80%] flex flex-col justify-center items-center gap-4" >
+                                        <input type="text" name="" id="name" placeholder="Name" value={name} onChange={handelinput} className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500 rounded-md" required />
+                                        <button type="submit" className="bg-black p-3 text-white w-full rounded-md text-lg font-bold" onClick={handlesubmit}>   submit</button>
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </>
+                )
+            }
         </>
     )
 }
