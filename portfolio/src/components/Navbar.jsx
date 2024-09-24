@@ -52,6 +52,10 @@ const Navbar = () => {
         title: "Projects",
         path: "/projects"
     },
+    {
+        title: "Certification",
+        path: "/Certification"
+    },
 
     ]
     const emailref = useRef(null)
@@ -86,8 +90,8 @@ const Navbar = () => {
                 visible && (
                     <>
                         <div className="h-screen w-screen absolute top-0 left-0 bg-black/25 flex justify-center items-center z-50">
-                            <div className=" h-[50%] w-[30%] bg-red z-50 flex flex-col  bg-white  shadow-lg rounded-md">
-                                <div className="w-full h-[15%] flex flex-row justify-start px-10 items-center border-2 text-white bg-black text-xl font-bold ">
+                            <div className=" h-[50%] w-[30%] bg-red z-50 flex flex-col  bg-[#0A1828]  shadow-lg rounded-md">
+                                <div className="w-full h-[15%] flex flex-row justify-start px-10 items-center border-2 text-[#BFA181] bg-black text-xl font-bold ">
                                     <div className="w-1/2">
                                         Login
                                     </div>
@@ -99,7 +103,7 @@ const Navbar = () => {
                                     <form className="w-[80%] h-[80%] flex flex-col justify-center items-center gap-4" onSubmit={handleLogin}>
                                         <input type="email" ref={emailref} name="" id="email" placeholder="email" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500 rounded-md" required />
                                         <input type="password" ref={passwordref} name="" id="password" placeholder="password" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500 rounded-md" required />
-                                        <button type="submit" className="bg-black p-3 text-white w-full rounded-md text-lg font-bold">   Login</button>
+                                        <button type="submit" className="bg-black p-3 text-[#BFA181] w-full rounded-md text-lg font-bold">   Login</button>
                                     </form>
                                 </div>
                                 

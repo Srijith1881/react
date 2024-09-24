@@ -97,8 +97,8 @@ const Profile = () => {
                 visible && (
                     <>
                         <div className="h-screen w-screen absolute top-0 left-0 bg-black/25 flex justify-center items-center z-50">
-                            <div className=" h-[50%] w-[30%] bg-red z-50 flex flex-col  bg-white  shadow-lg rounded-md">
-                                <div className="w-full h-[15%] flex flex-row justify-start px-10 items-center border-2 text-white bg-black text-xl font-bold ">
+                            <div className=" h-[50%] w-[30%] bg-red z-50 flex flex-col  bg-[#0A1828]  shadow-lg rounded-md">
+                                <div className="w-full h-[15%] flex flex-row justify-start px-10 items-center border-2 text-[#BFA181] bg-black text-xl font-bold ">
                                     <div className="w-1/2">
                                         Enter your name...!
                                     </div>
@@ -109,7 +109,7 @@ const Profile = () => {
                                 <div className="w-full h-[85%] flex flex-row justify-center items-center">
                                     <form className="w-[80%] h-[80%] flex flex-col justify-center items-center gap-4" >
                                         <input type="text" name="" id="name" placeholder="Name" value={name} onChange={handelinput} className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500 rounded-md" required />
-                                        <button type="submit" className="bg-black p-3 text-white w-full rounded-md text-lg font-bold" onClick={handlesubmit}>   submit</button>
+                                        <button type="submit" className="bg-black p-3 text-[#BFA181] w-full rounded-md text-lg font-bold" onClick={handlesubmit}>   submit</button>
                                     </form>
                                 </div>
                                 
